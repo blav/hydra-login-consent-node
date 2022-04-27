@@ -65,6 +65,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 })
 
 const listenOn = Number(process.env.PORT || 3000)
-app.listen(listenOn, () => {
-  console.log(`Listening on http://0.0.0.0:${listenOn}`)
+const listenOnHost = process.env.HOST || "0.0.0.0"
+app.listen(listenOn, listenOnHost, () => {
+  console.log(`Listening on http://${listenOnHost}:${listenOn}`)
 })
